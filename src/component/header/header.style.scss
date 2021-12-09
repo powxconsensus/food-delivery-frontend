@@ -1,0 +1,53 @@
+.header {
+  width: 100%;
+  height: 60%;
+  min-height: 80px !important;
+  display: flex;
+  align-items: flex-start;
+  padding: 20px 0px 20px 0px;
+  z-index: -10;
+  .brand-name {
+    width: 20%;
+    height: 100;
+    display: flex;
+    justify-content: center;
+  }
+  .navbar-item {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: cursive;
+    cursor: pointer;
+  }
+  .extreme-right {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    justify-content: space-around;
+  }
+  .right-side {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    .search-input {
+      width: 100%;
+      height: 100%;
+      form {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        #search {
+          height: 50px;
+          width: 80%;
+          border-radius: 15px;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}
