@@ -1,0 +1,19 @@
+{
+    "restaurant": [
+      { 
+        "id": 1,
+        "name": "new heaven", 
+        "owner_name": "Priyanshu Mishra", 
+        "contact_number":"9890903490",
+        "address":"sricity",
+        "images":["1","2","3"],
+        "is_order_accepting":"true",
+        "tags":["tea","coffe","lol"],
+        "dishes": [
+          { "id": 1, "name": "tea", "price":"$10","image":"090" },
+          { "id": 2, "name": "coffe", "price":"$20","image":"090" }
+        ]
+     }
+    ]
+    
+}

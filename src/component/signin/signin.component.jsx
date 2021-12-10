@@ -1,6 +1,7 @@
 import React from "react";
 import "./signin.style.scss";
 import { connect } from "react-redux";
+import { setUser } from "../../redux/userReducer/user.actions";
 import {
   toggleSignUpWindow,
   toggleSignInWindow,
@@ -17,8 +18,18 @@ class SignIn extends React.Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { email, password } = this.state;
+    if (!email || !password) return;
+    this.props.setUser({
+      email: email,
+      password,
+    });
+    this.setState({ email: "", password: "" });
+    this.props.toggleSignInWindow(false);
+  };
   render() {
-    console.log("Ffs");
     return (
       <div
         className="sign-in"
@@ -31,7 +42,7 @@ class SignIn extends React.Component {
           <div class="container">
             <div class="screen">
               <div class="screen__content">
-                <form class="login">
+                <div class="login">
                   <div class="login__field">
                     <i class="login__icon fas fa-user"></i>
                     <input
@@ -54,7 +65,10 @@ class SignIn extends React.Component {
                       onChange={this.onChange}
                     />
                   </div>
-                  <button class="button login__submit">
+                  <button
+                    class="button login__submit"
+                    onClick={this.handleSubmit}
+                  >
                     <span class="button__text">Log In Now</span>
                     <i class="button__icon fas fa-chevron-right"></i>
                   </button>
@@ -64,7 +78,7 @@ class SignIn extends React.Component {
                       Create account
                     </h4>
                   </div>
-                </form>
+                </div>
               </div>
               <div class="screen__background">
                 <span class="screen__background__shape screen__background__shape4"></span>
@@ -83,6 +97,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleSignInWindow: (isOpen) => dispatch(toggleSignInWindow(isOpen)),
     toggleSignUpWindow: (isOpen) => dispatch(toggleSignUpWindow(isOpen)),
+    setUser: (user) => dispatch(setUser(user)),
   };
 };
 export default connect(null, mapDispatchToProps)(SignIn);

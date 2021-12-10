@@ -16,6 +16,7 @@
     font-size: 20px;
     font-weight: 700;
     font-family: cursive;
+    height: 25px;
     cursor: pointer;
   }
   .extreme-right {
@@ -33,6 +34,56 @@
     .search-input {
       width: 100%;
       height: 100%;
+      position: relative;
+      .searched-data-dropdown {
+        height: 250px;
+        //height: auto;
+
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        margin-bottom: -250px;
+
+        .list-out {
+          height: 100%;
+          width: 80%;
+          border-radius: 0px 0px 20px 20px;
+          background-color: lightcoral;
+
+          .list-item {
+            width: calc(100% - 20px);
+            height: 70px;
+            display: flex;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            .res-image {
+              height: 100%;
+              width: 70px;
+              border-radius: 8px;
+            }
+            .res-details {
+              width: calc(100% - 70px);
+              height: 100%;
+              background-color: lawngreen;
+              padding-left: 10px;
+              display: flex;
+              flex-direction: column;
+              .res-name {
+                font-size: 22px;
+                font-family: cursive;
+                font-weight: 400;
+              }
+              .rating {
+                font-size: 16px;
+                background-color: red;
+              }
+            }
+          }
+        }
+      }
       form {
         height: 100%;
         width: 100%;

@@ -2,6 +2,9 @@ import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; //local storage
 import toggleReducer from "./toggle/toggle.reducer";
+import userReducer from "./userReducer/user.reducer";
+import RestaurantReducer from "./restaurant/restaurant.reducer";
+
 const persistConfig = {
   key: "root",
   storage,
@@ -10,6 +13,8 @@ const persistConfig = {
 };
 const appReducer = combineReducers({
   toggle: toggleReducer,
+  user: userReducer,
+  restaurant: RestaurantReducer,
 });
 
 const rootReducer = (state, action) => {

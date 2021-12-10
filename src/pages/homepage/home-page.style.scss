@@ -1,0 +1,10 @@
+.home-page {
+  padding: 20px;
+  height: auto;
+  width: calc(100% - 40px);
+  background-color: brown;
+  .list-out-items {
+    display: flex;
+    justify-content: space-around;
+  }
+}
