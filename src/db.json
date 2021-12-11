@@ -10,8 +10,8 @@
         "is_order_accepting":"true",
         "tags":["tea","coffe","lol"],
         "dishes": [
-          { "id": 1, "name": "tea", "price":"$10","image":"090" },
-          { "id": 2, "name": "coffe", "price":"$20","image":"090" }
+          { "id": 1, "name": "tea", "price":"10","image":"090" },
+          { "id": 2, "name": "coffe", "price":"20","image":"090" }
         ]
      }
     ]

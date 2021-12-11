@@ -1,0 +1,62 @@
+.order-list {
+  width: calc(100% - 40px);
+  padding: 20px;
+  background-color: yellow;
+  .dish-item {
+    width: calc(100% - 16px);
+    height: 130px;
+    padding: 8px;
+    background-color: red;
+    display: flex;
+    hr {
+      color: white;
+      height: 1px;
+      margin: 0;
+      width: 100%;
+    }
+    .dish-details {
+      width: calc(100% - 120px);
+      background-color: yellowgreen;
+      display: flex;
+      .name-rating {
+        width: calc(80% - 30px);
+        height: 100%;
+        background-color: red;
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        .dish-name {
+          font-size: 30px;
+        }
+        .dish-rating {
+          font-size: 16px;
+          margin-top: 10px;
+        }
+      }
+      .add-to-cart {
+        width: 20%;
+        height: 100%;
+        background-color: yellowgreen;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        div {
+          border-radius: 10px;
+          background-color: red;
+          padding: 10px 20px 10px 20px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .dish-image {
+      height: 100%;
+      width: 120px;
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 10px 0px 0px 10px;
+      }
+    }
+  }
+}

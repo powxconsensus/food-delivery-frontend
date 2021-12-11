@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage"; //local storage
 import toggleReducer from "./toggle/toggle.reducer";
 import userReducer from "./userReducer/user.reducer";
 import RestaurantReducer from "./restaurant/restaurant.reducer";
+import CartReducer from "./cart/cart.reducer";
 
 const persistConfig = {
   key: "root",
@@ -15,6 +16,7 @@ const appReducer = combineReducers({
   toggle: toggleReducer,
   user: userReducer,
   restaurant: RestaurantReducer,
+  cart: CartReducer,
 });
 
 const rootReducer = (state, action) => {

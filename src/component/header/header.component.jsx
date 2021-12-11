@@ -5,7 +5,7 @@ import SignUp from "../signup/signup.component";
 import { store } from "./../../redux/store";
 import resDB from "./../../db.json";
 import { Link } from "react-router-dom";
-
+import { withRouter } from "../../withRouter";
 import "./header.style.scss";
 import {
   toggleSignInWindow,
@@ -13,6 +13,7 @@ import {
 } from "./../../redux/toggle/toggle.actions";
 import { setUser } from "../../redux/userReducer/user.actions";
 import { setRestaurantWithItem } from "../../redux/restaurant/restaurant.actions";
+import CartItem from "../cart-item/cart-item.component";
 
 class Header extends React.Component {
   constructor() {
@@ -20,6 +21,7 @@ class Header extends React.Component {
     this.state = {
       searchedRestaurant: [],
       isSearchedDropdownOpen: false,
+      cartHidden: false,
     };
   }
   componentDidMount() {
@@ -68,9 +70,15 @@ class Header extends React.Component {
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
+          height: `${this.props.location.pathname !== "/" ? "30px" : "60%"}`,
         }}
       >
-        <div className="brand-name navbar-item">Food Delivery</div>
+        <div
+          className="brand-name navbar-item"
+          onClick={() => this.props.navigate("/")}
+        >
+          Food Delivery
+        </div>
         <div className="right-side">
           <div className="search-input">
             <form autocomplete="off">
@@ -133,7 +141,36 @@ class Header extends React.Component {
             </>
           ) : (
             <>
-              <div className="navbar-item">Cart</div>
+              <div
+                className="navbar-item"
+                onClick={() =>
+                  this.setState({ cartHidden: !this.state.cartHidden })
+                }
+                onDoubleClick={() => this.props.navigate("/carts")}
+              >
+                Cart
+                {this.state.cartHidden ? (
+                  <div className="cart-items">
+                    <div className="namee">Cart Items</div>
+                    <hr />
+                    <div className="items">
+                      {this.props.cartItems.map((item) => (
+                        <CartItem item={item} />
+                      ))}
+                    </div>
+                    <div className="total-cost">
+                      <div>Total:</div>{" "}
+                      <div>
+                        {this.props.cartItems.reduce(
+                          (prev, item) => prev + item.price * item.quantity,
+                          0
+                        )}
+                      </div>
+                    </div>
+                    <div className="checkout">Checkout</div>
+                  </div>
+                ) : null}
+              </div>
               <div
                 className="navbar-item"
                 onClick={() =>
@@ -159,6 +196,7 @@ const mapStateToProps = (state) => {
     isSignUpOpen: state.toggle.isSignUpWindowOpen,
     user: state.user.user,
     restaurantWithItems: state.restaurant.restaurantWithItems,
+    cartItems: state.cart.cartItems,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -170,4 +208,4 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(setRestaurantWithItem(payload)),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

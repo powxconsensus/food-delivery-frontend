@@ -1,0 +1,70 @@
+.restaturant-page {
+  width: calc(100% - 40px);
+  padding: 20px;
+  height: auto;
+  background-color: red;
+  .res-details {
+    width: calc(100% - 40px);
+    height: 50px;
+    padding: 20px;
+    background-color: lightgreen;
+    display: flex;
+    align-items: center;
+    .res-name {
+      font-size: 40px;
+      font-weight: 500;
+      font-family: cursive;
+    }
+    .rate-res {
+      background-color: lightpink;
+      padding: 3px;
+      font-size: 30px;
+      margin-left: 30px;
+      cursor: pointer;
+      padding: 1px 20px 1px 20px;
+      border-radius: 14px;
+    }
+  }
+  .res-address {
+    font-size: 24px;
+    width: calc(100% - 40px);
+    padding: 10px 20px 10px 20px;
+    background-color: lightpink;
+  }
+  hr {
+    color: white;
+    height: 1px;
+    margin: 0;
+  }
+  .navbar-list {
+    height: 100%;
+    width: calc(100% - 40px);
+    padding: 0px 20px 0px 20px;
+    background-color: lightseagreen;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .nav-item {
+      height: 100%;
+      width: 50px;
+      font-size: 16px;
+      border-radius: 2px;
+      padding: 10px;
+      cursor: pointer;
+      &:hover {
+        background-color: grey;
+      }
+    }
+  }
+
+  .res-images {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .res-image-item {
+      height: 300px;
+      width: 100%;
+    }
+  }
+}
