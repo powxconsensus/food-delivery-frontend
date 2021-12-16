@@ -1,19 +1,19 @@
 import "./display-card.style.scss";
 
-const DisplayCard = ({ restaurantName }) => {
+const DisplayCard = ({ name, image }) => {
   return (
     <div className="display-card">
       <div
         className="display-card-images"
         style={{
-          backgroundImage: `url("https://bit.ly/31PtRoE")`,
+          backgroundImage: `url(${image})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
       ></div>
       <hr />
-      <div className="card-display-name">{restaurantName}</div>
+      <div className="card-display-name">{name}</div>
     </div>
   );
 };

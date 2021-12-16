@@ -57,6 +57,9 @@ footer {
   align-items: center;
   justify-content: center;
   position: relative;
+  .ho-address {
+    text-transform: capitalize;
+  }
 }
 
 .top_header section {

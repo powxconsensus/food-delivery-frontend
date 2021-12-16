@@ -13,6 +13,16 @@
     display: flex;
     align-items: center;
   }
+  .empty-message {
+    font-size: 18px;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-family: cursive;
+  }
   .review-list {
     width: calc(100% - 40px);
     padding: 20px;

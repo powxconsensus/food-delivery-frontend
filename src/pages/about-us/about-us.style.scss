@@ -1,24 +1,27 @@
-.home-page {
-  padding: 20px;
-  height: auto;
+.about-us {
   width: calc(100% - 40px);
-  color: black;
+  padding: 20px;
+  min-height: 200px;
+  height: auto;
   background: #2bc0e4;
   background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
   background: linear-gradient(to top, #eaecc6, #2bc0e4);
-
-  .recommended-restaurant {
-    font-size: 24px;
-    font-family: monospace;
-    margin: 8px;
+  .about-us-heading {
+    font-size: 28px;
     font-weight: 500;
-    padding: 10px 20px 10px 20px;
+    font-family: cursive;
     background: #2bc0e4;
     background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
     background: linear-gradient(to top, #eaecc6, #2bc0e4);
   }
-  .list-out-items {
+  .aboutus-content {
+    font-size: 20px;
+    font-family: cursive;
+    font-weight: 400;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding: 5% 10% 5% 10%;
   }
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./footer.style.scss";
 
 const Footer = () => {
@@ -8,7 +9,7 @@ const Footer = () => {
           <span>
             <i class="fa fa-map-marker"></i>
           </span>
-          <span>tada, Sri city, AP, India, 234444</span>
+          <span className="ho-address">tada, Sri city, AP, India, 234444</span>
         </section>
         <section>
           <span>
@@ -40,12 +41,12 @@ const Footer = () => {
           </a>
         </section>
         <section>
-          <a href="#">Home</a>
-          <a href="#">About us</a>
-          <a href="#">Order</a>
-          <a href="#">Retail</a>
-          <a href="#">Member</a>
-          <a href="#">Contact Us</a>
+          <Link to="/">Home</Link>
+          <Link to="/about">About us</Link>
+          <Link to="#">Order</Link>
+          <Link to="#">Retail</Link>
+          <Link to="/members">Member</Link>
+          <Link to="#">Contact Us</Link>
         </section>
       </div>
       <div class="copyright">

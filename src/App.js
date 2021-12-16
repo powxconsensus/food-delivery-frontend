@@ -4,7 +4,9 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Footer from "./component/footer/footer.component";
 import Restaurant from "./pages/restaurant/restaurant";
+import Member from "./pages/member/member.component";
 import Cart from "./pages/cart/cart";
+import AboutUs from "./pages/about-us/about-us.component";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="restaurant">
           <Route path=":id" element={<Restaurant />} />
         </Route>
+        <Route path="/members" element={<Member />} />
+        <Route path="/about" element={<AboutUs />} />
       </Routes>
       <Footer />
     </div>

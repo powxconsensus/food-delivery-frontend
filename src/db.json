@@ -1,22 +1,93 @@
 {
-    "restaurant": [
-      { 
-        "id": 1,
-        "name": "new heaven", 
-        "owner_name": "Priyanshu Mishra", 
-        "contact_number":"9890903490",
-        "address":"sricity",
-        "images":["1","2","3"],
-        "is_order_accepting":"true",
-        "tags":["tea","coffe","lol"],
-        "dishes": [
-          { "id": 1, "name": "tea", "price":"10","image":"090" },
-          { "id": 2, "name": "coffe", "price":"20","image":"090" }
-        ],
-        "review":[
-          {"text":"ghatiya res","name":"Chinmay Lohani","email":"chinmay.l19@iiits.in","rating":"4"}
-        ]
-     }
+  "restaurant": [
+    { 
+      "id": 1,
+      "name": "New Heaven", 
+      "owner_name": "Priyanshu Mishra", 
+      "contact_number":"9890903490",
+      "address":"sricity",
+      "images":["https://bit.ly/3F4sXmE","2","3"],
+      "is_order_accepting":"true",
+      "tags":["tea","coffee","lol"],
+      "rating":"4",
+      "dishes": [
+        { "id": 11, "name": "Tea", "price":"10","image":"https://bit.ly/3F4lZhz","rating":"2" },
+        { "id": 12, "name": "Coffee", "price":"20","image":"https://bit.ly/3saNNx2","rating":"5" },
+        { "id": 13, "name": "Sandwich", "price":"30","image":"https://bit.ly/3E2gz5g","rating":"4" },
+        { "id": 14, "name": "Juice", "price":"15","image":"https://bit.ly/33pb3x2","rating":"3" },
+        { "id": 15, "name": "Cold Drink", "price":"35","image":"https://bit.ly/3sbhj64","rating":"5" }
+        
+      ],
+      "review":[
+        {"text":"nice res 🙂😅","name":"Priyanshu","email":"priyanshu.m19@iiits.in","rating":"4"}
+      ]
+   },
+   { 
+      "id": 2,
+      "name": "Kool Break", 
+      "owner_name": "Priyanshu Mishra", 
+      "contact_number":"9890903490",
+      "address":"sricity",
+      "images":["https://bit.ly/3q4edxM","2","3"],
+      "is_order_accepting":"true",
+      "tags":["tea","coffe","lol"],
+      "rating":"3",
+      "dishes": [
+        { "id": 21, "name": "Noodles", "price":"100","image":"https://bit.ly/3yuKDFN","rating":"4" },
+        { "id": 22, "name": "Pizza", "price":"70","image":"https://bit.ly/3INxAE9","rating":"3" },
+        { "id": 23, "name": "Fried Rice", "price":"90","image":"https://bit.ly/33z1rA2","rating":"2" },
+        { "id": 24, "name": "Paneer", "price":"140","image":"https://bit.ly/3m8iMpM","rating":"5" },
+        { "id": 25, "name": "Cold Drink", "price":"35","image":"https://bit.ly/3sbhj64","rating":"5" }
+        
+      ],
+      "review":[
+        {"text":"Fast order 🙂","name":"Ashar Siddiqui","email":"ashar.s19@iiits.in","rating":"5"}
+      ]
+   },
+   { 
+      "id": 3,
+      "name": "Sundar Bakery", 
+      "owner_name": "Priyanshu Mishra", 
+      "contact_number":"9890903490",
+      "address":"sricity",
+      "images":["https://bit.ly/3DVvnCJ","2","3"],
+      "is_order_accepting":"true",
+      "tags":["tea","coffe","lol"],
+      "rating":"5",
+      "dishes": [
+        { "id": 31, "name": "Patties", "price":"20","image":"https://bit.ly/3H3UyoX","rating":"3" },
+        { "id": 32, "name": "Cake", "price":"90","image":"https://bit.ly/3GNqZrr","rating":"4" },
+        { "id": 33, "name": "Sandwich", "price":"30","image":"https://bit.ly/3E2gz5g","rating":"2" },
+        { "id": 34, "name": "Fruit Cake", "price":"60","image":"https://bit.ly/3pYx2Tf","rating":"3" },
+        { "id": 35, "name": "Biscuit ", "price":"110","image":"https://bit.ly/3s9Rgfj","rating":"5" },
+        { "id": 36, "name": "Burger", "price":"40","image":"https://bit.ly/3DUfX1G","rating":"3" }
+        
+      ],
+      "review":[
+        {"text":"Not up to the mark ","name":"Jainendra Prakash","email":"jainendra.p19@iiits.in","rating":"2"}
+      ]
+   },
+   { 
+    "id": 4,
+    "name": "Swarnamukhi", 
+    "owner_name": "Priyanshu Mishra", 
+    "contact_number":"9890903490",
+    "address":"sricity",
+    "images":["https://bit.ly/3yxUHO0","2","3"],
+    "is_order_accepting":"true",
+    "tags":["tea","coffe","lol"],
+    "rating":"2",
+    "dishes": [
+      { "id": 41, "name": "Tea", "price":"20","image":"https://bit.ly/3F4lZhz","rating":"4" },
+      { "id": 42, "name": "Coffee", "price":"30","image":"https://bit.ly/3saNNx2","rating":"4" },
+      { "id": 43, "name": "Fried Rice", "price":"140","image":"https://bit.ly/33z1rA2","rating":"4" },
+      { "id": 44, "name": "Paneer", "price":"210","image":"https://bit.ly/3m8iMpM","rating":"5" },
+      { "id": 45, "name": "Noodles", "price":"150","image":"https://bit.ly/3yuKDFN","rating":"5" }
+      
+    ],
+    "review":[
+      {"text":"Verry Good","name":"Sumanth","email":"sumanth.p19@iiits.in","rating":"5"}
     ]
-    
+ }
+  ]
 }

@@ -9,8 +9,6 @@ import CartReducer from "./cart/cart.reducer";
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: [],
-  whiteList: [],
 };
 const appReducer = combineReducers({
   toggle: toggleReducer,

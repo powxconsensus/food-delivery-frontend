@@ -14,6 +14,7 @@ import {
 import { setUser } from "../../redux/userReducer/user.actions";
 import { setRestaurantWithItem } from "../../redux/restaurant/restaurant.actions";
 import CartItem from "../cart-item/cart-item.component";
+import DisplayRating from "../rating/rating.component";
 
 class Header extends React.Component {
   constructor() {
@@ -62,12 +63,11 @@ class Header extends React.Component {
   };
   render() {
     const { isSearchedDropdownOpen } = this.state;
-    let img = "https://bit.ly/31PtRoE";
     return (
       <div
         className="header"
         style={{
-          backgroundImage: `url(${img})`,
+          backgroundImage: `url("https://bit.ly/3dSQc7v")`,
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
@@ -75,10 +75,10 @@ class Header extends React.Component {
         }}
       >
         <div
-          className="brand-name navbar-item"
+          className="brand-name navbar-item "
           onClick={() => this.props.navigate("/")}
         >
-          Food Delivery
+          Food For Foodies
         </div>
         <div className="right-side">
           <div className="search-input">
@@ -114,7 +114,7 @@ class Header extends React.Component {
                         <div
                           className="res-image"
                           style={{
-                            backgroundImage: `url(${img})`,
+                            backgroundImage: `url(${res.images[0]})`,
                             backgroundPosition: "center",
                             backgroundSize: "cover",
                             backgroundRepeat: "no-repeat",
@@ -122,7 +122,9 @@ class Header extends React.Component {
                         ></div>
                         <div className="res-details">
                           <div className="res-name">{res.name}</div>
-                          <div className="rating">{res.rating}</div>
+                          <div className="rating">
+                            <DisplayRating rating={res.rating} />
+                          </div>
                         </div>
                       </div>
                     </Link>

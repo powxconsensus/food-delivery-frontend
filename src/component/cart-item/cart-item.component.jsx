@@ -18,7 +18,7 @@ class CartItem extends React.Component {
     return (
       <div className="cart-item" style={{ height: `${itemHeight}` }}>
         <img
-          src="https://bit.ly/31PtRoE"
+          src={item.image}
           alt=""
           className="item-image"
           style={{ width: `${itemImageWidth}` }}

@@ -14,12 +14,30 @@
     justify-content: center;
   }
   .navbar-item {
-    font-size: 20px;
+    font-size: 28px;
     font-weight: 700;
     font-family: cursive;
-    height: 25px;
+    height: 40px;
+    * {
+      color: black;
+      font-size: 18px;
+    }
     cursor: pointer;
     position: relative;
+    background: #f953c6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to left,
+      #b91d73,
+      #f953c6
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to left,
+      #b91d73,
+      #f953c6
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background-clip: text;
+    color: transparent;
     .cart-items {
       z-index: 10;
       position: absolute;
@@ -95,6 +113,7 @@
       justify-content: center;
       .searched-data-dropdown {
         height: 300px;
+        overflow: auto;
         width: 80%;
         position: absolute;
         bottom: 0;
@@ -139,6 +158,7 @@
               .res-name {
                 font-size: 22px;
                 font-weight: 400;
+                text-transform: capitalize;
               }
               .rating {
                 font-size: 16px;

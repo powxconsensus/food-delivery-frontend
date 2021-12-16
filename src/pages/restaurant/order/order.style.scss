@@ -20,7 +20,6 @@
     }
     .dish-details {
       width: calc(100% - 120px);
-      background-color: yellowgreen;
       display: flex;
       .name-rating {
         width: calc(80% - 30px);
@@ -34,23 +33,41 @@
         .dish-name {
           font-size: 30px;
         }
+        .dish-cost {
+          font-size: 18px;
+          font-family: monospace;
+          font-weight: 500;
+        }
         .dish-rating {
-          font-size: 16px;
+          font-size: 18px;
           margin-top: 10px;
+          display: flex;
+          .filled {
+            color: gold;
+          }
+          .empty {
+            color: white;
+          }
         }
       }
       .add-to-cart {
         width: 20%;
         height: 100%;
-        background-color: yellowgreen;
         display: flex;
         align-items: center;
         justify-content: center;
         div {
           border-radius: 10px;
-          background-color: red;
+          background: #2bc0e4;
+          background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+          background: linear-gradient(to top, #eaecc6, #2bc0e4);
           padding: 10px 20px 10px 20px;
           cursor: pointer;
+          &:hover {
+            background: #2bc0e4;
+            background: -webkit-linear-gradient(to bottom, #eaecc6, #2bc0e4);
+            background: linear-gradient(to bottom, #eaecc6, #2bc0e4);
+          }
         }
       }
     }

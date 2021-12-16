@@ -18,6 +18,18 @@
       font-size: 40px;
       font-weight: 500;
       font-family: cursive;
+      text-transform: capitalize;
+    }
+    .res-rating {
+      font-size: 28px;
+      display: flex;
+      margin-left: 10px;
+      .filled {
+        color: gold;
+      }
+      .empty {
+        color: white;
+      }
     }
     .rate-res {
       background: #1b86a1;
@@ -88,4 +100,8 @@
       width: 100%;
     }
   }
+}
+.restaurant-not-found {
+  height: auto;
+  width: 100%;
 }

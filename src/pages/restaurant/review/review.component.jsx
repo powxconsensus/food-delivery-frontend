@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import "./review.style.scss";
+import { addRestaurantReview } from "../../../redux/restaurant/restaurant.actions";
 
 class Review extends React.Component {
   constructor() {
@@ -11,6 +12,7 @@ class Review extends React.Component {
       text: "",
       email: "",
       city: "",
+      name: "",
     };
   }
   handleStarClick = (event) => {
@@ -24,10 +26,36 @@ class Review extends React.Component {
     this.setState({ [name]: value });
   };
   handleSubmit = (event) => {
-    console.log(this.state);
+    const { rating, email, text, city, name } = this.state;
+    const { user } = this.props;
+    if (user) {
+      if (!text) return;
+      this.props.addRestaurantReview({
+        restaurant_id: this.props.restaurant_id,
+        rating,
+        text,
+        name: user.email.substring(0, user.email.lastIndexOf("@")),
+      });
+    } else {
+      if (!text || !city || !email || !name) return;
+      this.props.addRestaurantReview({
+        restaurant_id: this.props.restaurant_id,
+        rating,
+        text,
+        name,
+        city,
+        email,
+      });
+    }
+    this.setState({ rating: 3, email: "", name: "", city: "", text: "" });
   };
   render() {
-    const { review, user } = this.props;
+    const { restaurant, user } = this.props;
+    const review = restaurant
+      ? restaurant.map((res) => {
+          if (res.id == this.props.restaurant_id) return res.review;
+        })[0]
+      : null;
     return (
       <div className="people-review-list">
         <div className="review-head">Reviews</div>
@@ -102,6 +130,8 @@ class Review extends React.Component {
                     id="name"
                     className="name"
                     placeholder="Name"
+                    value={this.state.name}
+                    onChange={this.handleChange}
                   />
                   <label htmlFor="city">City:</label>
                   <input
@@ -146,6 +176,12 @@ class Review extends React.Component {
 const mapStateToProps = (state) => {
   return {
     user: state.user.user,
+    restaurant: state.restaurant.restaurantWithItems,
   };
 };
-export default connect(mapStateToProps)(Review);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addRestaurantReview: (review) => dispatch(addRestaurantReview(review)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Review);

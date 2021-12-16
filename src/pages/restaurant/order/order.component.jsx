@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../../../redux/cart/cart.actions";
 import { toggleSignInWindow } from "../../../redux/toggle/toggle.actions";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import "./order.style.scss";
 
 class Order extends React.Component {
@@ -17,12 +18,27 @@ class Order extends React.Component {
           <>
             <div className="dish-item">
               <div className="dish-image">
-                <img src="https://bit.ly/31PtRoE" alt="" />
+                <img src={order.image} alt="" />
               </div>
               <div className="dish-details">
                 <div className="name-rating">
                   <div className="dish-name">{order.name}</div>
-                  <div className="dish-rating">{order.rating} *</div>
+                  <div className="dish-rating">
+                    {[...Array(parseInt(order.rating))].map((el, idx) => (
+                      <span className="filled">
+                        <AiFillStar />
+                      </span>
+                    ))}
+                    {[...Array(5 - parseInt(order.rating))].map((el, idx) => (
+                      <span className="empty">
+                        <AiOutlineStar />
+                      </span>
+                    ))}
+                  </div>
+                  <div className="dish-cost">
+                    {order.price}
+                    {" Rs"}
+                  </div>
                 </div>
                 <div className="add-to-cart">
                   <div

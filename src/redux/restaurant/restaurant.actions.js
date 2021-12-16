@@ -4,3 +4,10 @@ export const setRestaurantWithItem = (payload) => {
     payload,
   };
 };
+
+export const addRestaurantReview = (payload) => {
+  return {
+    type: "ADD_RESTAURANT_REVIEW",
+    payload,
+  };
+};
