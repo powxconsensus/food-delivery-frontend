@@ -29,6 +29,7 @@ class Restaurant extends React.Component {
     if (this.state.notFound)
       return <div>404, no restaurant found with given id</div>;
     if (!this.state.restaurant) return <div>Loading...</div>;
+    const { isOrder, isReview } = this.state;
     return (
       <div className="restaturant-page">
         <div className="res-images">
@@ -46,13 +47,13 @@ class Restaurant extends React.Component {
         <hr />
         <div className="navbar-list">
           <div
-            className="nav-item"
+            className={isOrder ? "nav-item active" : "nav-item"}
             onClick={() => this.setState({ isOrder: true, isReview: false })}
           >
             Order
           </div>
           <div
-            className="nav-item"
+            className={isReview ? "nav-item active" : "nav-item"}
             onClick={() => this.setState({ isOrder: false, isReview: true })}
           >
             Review

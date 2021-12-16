@@ -1,6 +1,6 @@
 import "./display-card.style.scss";
 
-const DisplayCard = () => {
+const DisplayCard = ({ restaurantName }) => {
   return (
     <div className="display-card">
       <div
@@ -13,7 +13,7 @@ const DisplayCard = () => {
         }}
       ></div>
       <hr />
-      <div className="card-display-name">Hello</div>
+      <div className="card-display-name">{restaurantName}</div>
     </div>
   );
 };

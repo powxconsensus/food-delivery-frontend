@@ -5,6 +5,7 @@ import {
   toggleSignUpWindow,
   toggleSignInWindow,
 } from "./../../redux/toggle/toggle.actions";
+import { setUser } from "../../redux/userReducer/user.actions";
 class SignUp extends React.Component {
   constructor() {
     super();
@@ -16,6 +17,17 @@ class SignUp extends React.Component {
   onChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  };
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { email, password } = this.state;
+    if (!email || !password) return;
+    this.props.setUser({
+      email: email,
+      password,
+    });
+    this.setState({ email: "", password: "" });
+    this.props.toggleSignInWindow(false);
   };
   render() {
     return (
@@ -53,7 +65,10 @@ class SignUp extends React.Component {
                       onChange={this.onChange}
                     />
                   </div>
-                  <button class="button login__submit">
+                  <button
+                    class="button login__submit"
+                    onClick={this.handleSubmit}
+                  >
                     <span class="button__text">Sign up Now</span>
                     <i class="button__icon fas fa-chevron-right"></i>
                   </button>
@@ -86,6 +101,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleSignUpWindow: (isOpen) => dispatch(toggleSignUpWindow(isOpen)),
     toggleSignInWindow: (isOpen) => dispatch(toggleSignInWindow(isOpen)),
+    setUser: (user) => dispatch(setUser(user)),
   };
 };
 export default connect(null, mapDispatchToProps)(SignUp);

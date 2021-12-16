@@ -2,12 +2,16 @@
   width: calc(100% - 40px);
   padding: 20px;
   height: auto;
-  background-color: red;
+  background: #2bc0e4;
+  background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+  background: linear-gradient(to top, #eaecc6, #2bc0e4);
   .res-details {
     width: calc(100% - 40px);
     height: 50px;
     padding: 20px;
-    background-color: lightgreen;
+    background: #1b86a1;
+    background: -webkit-linear-gradient(to top, #eaecc6, #1b86a1);
+    background: linear-gradient(to top, #eaecc6, #1b86a1);
     display: flex;
     align-items: center;
     .res-name {
@@ -16,7 +20,9 @@
       font-family: cursive;
     }
     .rate-res {
-      background-color: lightpink;
+      background: #1b86a1;
+      background: -webkit-linear-gradient(to top, #eaecc6, #1b86a1);
+      background: linear-gradient(to top, #eaecc6, #1b86a1);
       padding: 3px;
       font-size: 30px;
       margin-left: 30px;
@@ -29,10 +35,12 @@
     font-size: 24px;
     width: calc(100% - 40px);
     padding: 10px 20px 10px 20px;
-    background-color: lightpink;
+    background: #1b86a1;
+    background: -webkit-linear-gradient(to top, #eaecc6, #1b86a1);
+    background: linear-gradient(to top, #eaecc6, #1b86a1);
   }
   hr {
-    color: white;
+    color: rgb(72, 72, 175);
     height: 1px;
     margin: 0;
   }
@@ -40,19 +48,32 @@
     height: 100%;
     width: calc(100% - 40px);
     padding: 0px 20px 0px 20px;
-    background-color: lightseagreen;
+    background: #1b86a1;
+    background: -webkit-linear-gradient(to top, #eaecc6, #1b86a1);
+    background: linear-gradient(to top, #eaecc6, #1b86a1);
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    .active {
+      background: #2bc0e4;
+      background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+      background: linear-gradient(to top, #eaecc6, #2bc0e4);
+      color: #074552;
+      font-size: 22px;
+    }
     .nav-item {
       height: 100%;
       width: 50px;
       font-size: 16px;
       border-radius: 2px;
       padding: 10px;
+      font-family: monospace;
+      font-weight: 500;
       cursor: pointer;
       &:hover {
-        background-color: grey;
+        background: #2bc0e4;
+        background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+        background: linear-gradient(to top, #eaecc6, #2bc0e4);
       }
     }
   }

@@ -21,28 +21,31 @@
     cursor: pointer;
     position: relative;
     .cart-items {
+      z-index: 10;
       position: absolute;
       width: 250px;
       height: 350px;
       border-radius: 15px 0px 15px 15px;
       margin-left: -225px;
-      background-color: red;
+      background-color: rgba(238, 228, 228, 0.75);
       padding: 10px;
       .items {
+        z-index: inherit;
         height: calc(100% - 120px);
         overflow: auto;
         width: 100%;
-        background-color: yellowgreen;
+        background-color: rgba(238, 228, 228, 1);
       }
       hr {
-        color: white;
+        color: rgb(36, 37, 39);
         margin: 0;
         height: 0.2px;
       }
       .total-cost {
         position: absolute;
+        background-color: rgba(238, 228, 228, 1);
+        color: black;
         bottom: 60px;
-        background-color: rgb(3, 7, 3);
         width: calc(100% - 20px);
         padding: 5px 10px 5px 0px;
         display: flex;
@@ -51,7 +54,7 @@
       .checkout {
         position: absolute;
         bottom: 0;
-        background-color: greenyellow;
+        background-color: rgb(58, 58, 126);
         width: 80%;
         display: flex;
         justify-content: center;
@@ -60,11 +63,15 @@
         border-radius: 10px;
         margin-left: 12px;
         margin-bottom: 10px;
+        &:hover {
+          background-color: rgb(42, 42, 105);
+        }
       }
       .namee {
         display: flex;
         align-items: center;
         font-size: 20px;
+        color: black;
       }
     }
   }
@@ -84,21 +91,31 @@
       width: 100%;
       height: 100%;
       position: relative;
+      display: flex;
+      justify-content: center;
       .searched-data-dropdown {
-        height: 250px;
-        width: 100%;
+        height: 300px;
+        width: 80%;
         position: absolute;
         bottom: 0;
-        display: flex;
-        justify-content: center;
-        margin-bottom: -250px;
-
+        margin-bottom: -300px;
+        background: #2bc0e4;
+        background: -webkit-linear-gradient(to bottom, #eaecc6, #2bc0e4);
+        background: linear-gradient(to bottom, #eaecc6, #2bc0e4);
+        border-radius: 0px 0px 15px 15px;
+        border-left: 3px solid rgb(36, 37, 38);
+        border-bottom: 3px solid rgb(36, 37, 38);
+        border-right: 3px solid rgb(36, 37, 38);
+        hr {
+          color: rgb(19, 19, 46);
+          margin: 0;
+          padding: 0;
+          height: 1px;
+        }
         .list-out {
-          height: 100%;
+          height: 90px;
           width: 80%;
           border-radius: 0px 0px 20px 20px;
-          background-color: lightcoral;
-
           .list-item {
             width: calc(100% - 20px);
             height: 70px;
@@ -114,18 +131,17 @@
             .res-details {
               width: calc(100% - 70px);
               height: 100%;
-              background-color: lawngreen;
               padding-left: 10px;
               display: flex;
               flex-direction: column;
+              color: black;
+              font-family: monospace;
               .res-name {
                 font-size: 22px;
-                font-family: cursive;
                 font-weight: 400;
               }
               .rating {
                 font-size: 16px;
-                background-color: red;
               }
             }
           }
@@ -137,7 +153,7 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        #search {
+        .search {
           height: 50px;
           width: 80%;
           border-radius: 15px;

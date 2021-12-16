@@ -2,7 +2,18 @@
   padding: 20px;
   height: auto;
   width: calc(100% - 40px);
-  background-color: brown;
+  color: black;
+  background: #2bc0e4;
+  background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+  background: linear-gradient(to top, #eaecc6, #2bc0e4);
+
+  .recommended-restaurant {
+    font-size: 24px;
+    font-family: monospace;
+    margin: 8px;
+    font-weight: 500;
+    text-decoration: underline;
+  }
   .list-out-items {
     display: flex;
     justify-content: space-around;

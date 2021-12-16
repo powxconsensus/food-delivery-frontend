@@ -8,11 +8,12 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="home-page">
+        <div className="recommended-restaurant">Recommended Restaurants</div>
         <div className="list-out-items">
-          <DisplayCard />
-          <DisplayCard />
-          <DisplayCard />
-          <DisplayCard />
+          <DisplayCard restaurantName="Bunty" />
+          <DisplayCard restaurantName="Bunty" />
+          <DisplayCard restaurantName="Bunty" />
+          <DisplayCard restaurantName="Bunty" />
         </div>
       </div>
     );

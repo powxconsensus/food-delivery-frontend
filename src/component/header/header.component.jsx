@@ -61,6 +61,7 @@ class Header extends React.Component {
     this.setState({ searchedRestaurant: tempRes });
   };
   render() {
+    const { isSearchedDropdownOpen } = this.state;
     let img = "https://bit.ly/31PtRoE";
     return (
       <div
@@ -81,43 +82,52 @@ class Header extends React.Component {
         </div>
         <div className="right-side">
           <div className="search-input">
-            <form autocomplete="off">
+            <form autoComplete="off">
               <input
                 type="text"
+                style={{
+                  borderRadius: `${
+                    isSearchedDropdownOpen ? "15px 15px 0px 0px" : "15px"
+                  }`,
+                }}
                 id="search"
                 className="search"
                 name="search"
-                placeholder="Search by dishes "
+                placeholder="Search by dishes or restaurants"
                 onChange={this.handleChange}
                 onClick={() => this.setState({ isSearchedDropdownOpen: true })}
               />
             </form>
-            {this.state.isSearchedDropdownOpen ? (
+            {isSearchedDropdownOpen ? (
               <div className="searched-data-dropdown">
+                <hr />
                 {this.state.searchedRestaurant.map((res) => (
-                  <Link
-                    to={`/restaurant/${res.id}`}
-                    onClick={() =>
-                      this.setState({ isSearchedDropdownOpen: false })
-                    }
-                    className="list-out"
-                  >
-                    <div className="list-item">
-                      <div
-                        className="res-image"
-                        style={{
-                          backgroundImage: `url(${img})`,
-                          backgroundPosition: "center",
-                          backgroundSize: "cover",
-                          backgroundRepeat: "no-repeat",
-                        }}
-                      ></div>
-                      <div className="res-details">
-                        <div className="res-name">free food</div>
-                        <div className="rating">3.5*</div>
+                  <>
+                    <Link
+                      to={`/restaurant/${res.id}`}
+                      onClick={() =>
+                        this.setState({ isSearchedDropdownOpen: false })
+                      }
+                      className="list-out"
+                    >
+                      <div className="list-item">
+                        <div
+                          className="res-image"
+                          style={{
+                            backgroundImage: `url(${img})`,
+                            backgroundPosition: "center",
+                            backgroundSize: "cover",
+                            backgroundRepeat: "no-repeat",
+                          }}
+                        ></div>
+                        <div className="res-details">
+                          <div className="res-name">{res.name}</div>
+                          <div className="rating">{res.rating}</div>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
+                    </Link>
+                    <hr />
+                  </>
                 ))}
               </div>
             ) : null}
@@ -143,10 +153,14 @@ class Header extends React.Component {
             <>
               <div
                 className="navbar-item"
-                onClick={() =>
-                  this.setState({ cartHidden: !this.state.cartHidden })
-                }
-                onDoubleClick={() => this.props.navigate("/carts")}
+                onClick={(event) => {
+                  if (event.target.className === "navbar-item")
+                    this.setState({ cartHidden: !this.state.cartHidden });
+                }}
+                onDoubleClick={(event) => {
+                  if (event.target.className === "navbar-item")
+                    this.props.navigate("/carts");
+                }}
               >
                 Cart
                 {this.state.cartHidden ? (

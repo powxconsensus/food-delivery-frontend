@@ -1,12 +1,16 @@
 .order-list {
   width: calc(100% - 40px);
   padding: 20px;
-  background-color: yellow;
+  background: #1b86a1;
+  background: -webkit-linear-gradient(to top, #eaecc6, #1b86a1);
+  background: linear-gradient(to top, #eaecc6, #1b86a1);
   .dish-item {
     width: calc(100% - 16px);
     height: 130px;
     padding: 8px;
-    background-color: red;
+    background: #1b86a1;
+    background: -webkit-linear-gradient(to top, #eaecc6, #1b86a1);
+    background: linear-gradient(to top, #eaecc6, #1b86a1);
     display: flex;
     hr {
       color: white;
@@ -21,7 +25,9 @@
       .name-rating {
         width: calc(80% - 30px);
         height: 100%;
-        background-color: red;
+        background: #1b86a1;
+        background: -webkit-linear-gradient(to top, #eaecc6, #1b86a1);
+        background: linear-gradient(to top, #eaecc6, #1b86a1);
         display: flex;
         flex-direction: column;
         padding-left: 20px;

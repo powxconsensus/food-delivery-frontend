@@ -12,6 +12,9 @@
         "dishes": [
           { "id": 1, "name": "tea", "price":"10","image":"090" },
           { "id": 2, "name": "coffe", "price":"20","image":"090" }
+        ],
+        "review":[
+          {"text":"ghatiya res","name":"Chinmay Lohani","email":"chinmay.l19@iiits.in","rating":"4"}
         ]
      }
     ]
