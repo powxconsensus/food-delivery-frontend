@@ -112,6 +112,7 @@
       display: flex;
       justify-content: center;
       .searched-data-dropdown {
+        z-index: 5;
         height: 300px;
         overflow: auto;
         width: 80%;

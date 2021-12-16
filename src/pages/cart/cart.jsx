@@ -21,6 +21,7 @@ class Cart extends React.Component {
                   itemHeight="200px"
                   itemImageWidth="200px"
                   textFontSize="36px"
+                  isItCartPage="true"
                 />
                 <hr />
               </>

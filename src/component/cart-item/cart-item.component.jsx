@@ -14,7 +14,8 @@ class CartItem extends React.Component {
     super();
   }
   render() {
-    const { item, itemHeight, itemImageWidth, textFontSize } = this.props;
+    const { item, itemHeight, itemImageWidth, textFontSize, isItCartPage } =
+      this.props;
     return (
       <div className="cart-item" style={{ height: `${itemHeight}` }}>
         <img
@@ -27,6 +28,16 @@ class CartItem extends React.Component {
           {item.name}
         </div>
         <div className="right-side-cart-items">
+          {isItCartPage ? (
+            <div className="quantity-x-price">
+              <div>
+                {item.quantity}
+                {" x"}
+                {item.price}
+                {" Rs"}
+              </div>
+            </div>
+          ) : null}
           <div
             className="clear-mark"
             onClick={() => this.props.clearItemFromCart(item)}

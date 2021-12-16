@@ -10,7 +10,7 @@ class HomePage extends React.Component {
       fourRes: [],
     };
   }
-  componentDidMount() {
+  setFourRes() {
     const { restaurant } = this.props;
     let n = restaurant.length;
     var result = new Array(n),
@@ -27,6 +27,9 @@ class HomePage extends React.Component {
   }
 
   render() {
+    if (!this.props.restaurant || !this.props.restaurant.length)
+      return <div className="loading">Loading...</div>;
+    if (this.state.fourRes.length == 0) this.setFourRes();
     return (
       <div className="home-page">
         <div className="recommended-restaurant">Recommended Restaurants</div>
