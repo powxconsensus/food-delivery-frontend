@@ -7,6 +7,10 @@ import Restaurant from "./pages/restaurant/restaurant";
 import Member from "./pages/member/member.component";
 import Cart from "./pages/cart/cart";
 import AboutUs from "./pages/about-us/about-us.component";
+import ContactUs from "./component/contact-us/contact-us.component";
+import CheckOut from "./pages/checkout/checkout.component";
+import Delivery from "./pages/delivery/delivery.component";
+import CovidMeasures from "./pages/covid/covidMeasures.component";
 
 function App() {
   return (
@@ -20,6 +24,10 @@ function App() {
         </Route>
         <Route path="/members" element={<Member />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/delivery" element={<Delivery />} />
+        <Route path="/covid" element={<CovidMeasures />} />
       </Routes>
       <Footer />
     </div>

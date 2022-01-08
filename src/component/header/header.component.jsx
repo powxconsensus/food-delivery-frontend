@@ -5,6 +5,8 @@ import SignUp from "../signup/signup.component";
 import { store } from "./../../redux/store";
 import resDB from "./../../db.json";
 import { Link } from "react-router-dom";
+import { clearCart } from "../../redux/cart/cart.actions";
+
 import { withRouter } from "../../withRouter";
 import "./header.style.scss";
 import {
@@ -31,6 +33,7 @@ class Header extends React.Component {
       const className = event.target.className;
       if (
         [
+          // "searched-data-dropdown",
           "list-out",
           "list-item",
           "res-image",
@@ -50,10 +53,11 @@ class Header extends React.Component {
     const value = event.target.value;
     let tempRes = [];
     this.props.restaurantWithItems.map((res) => {
-      if (res.name.includes(value)) return tempRes.push(res);
+      if (res.name.toLowerCase().includes(value.toLowerCase()))
+        return tempRes.push(res);
       for (let i = 0; i < res.dishes.length; i++) {
         const dish = res.dishes[i];
-        if (dish.name.includes(value)) {
+        if (dish.name.toLowerCase().includes(value.toLowerCase())) {
           tempRes.push(res);
           break;
         }
@@ -183,7 +187,15 @@ class Header extends React.Component {
                         )}
                       </div>
                     </div>
-                    <div className="checkout">Checkout</div>
+                    <div
+                      className="checkout"
+                      onClick={() => {
+                        this.setState({ cartHidden: false });
+                        this.props.navigate("/checkout");
+                      }}
+                    >
+                      Checkout
+                    </div>
                   </div>
                 ) : null}
               </div>
@@ -222,6 +234,7 @@ const mapDispatchToProps = (dispatch) => {
     setUser: (user) => dispatch(setUser(user)),
     setRestaurantWithItem: (payload) =>
       dispatch(setRestaurantWithItem(payload)),
+    clearCart: () => dispatch(clearCart()),
   };
 };
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

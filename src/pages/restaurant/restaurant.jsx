@@ -6,6 +6,7 @@ import Order from "./order/order.component";
 import "./restaurant.style.scss";
 import Review from "./review/review.component";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { Helmet } from "react-helmet";
 class Restaurant extends React.Component {
   constructor() {
     super();
@@ -70,53 +71,58 @@ class Restaurant extends React.Component {
     const { isOrder, isReview, restaurant } = this.state;
     const { name, rating, images } = restaurant;
     return (
-      <div className="restaturant-page">
-        <div className="res-images">
-          <img
-            className="res-image-item"
-            src={images[0]}
-            alt="images not found"
-          />
-          <div className="res-details">
-            <div className="res-name"> {name}</div>
-            <div className="res-rating">
-              {[...Array(parseInt(rating))].map((el, idx) => (
-                <span className="filled">
-                  <AiFillStar />
-                </span>
-              ))}
-              {[...Array(5 - parseInt(rating))].map((el, idx) => (
-                <span className="empty">
-                  <AiOutlineStar />
-                </span>
-              ))}
+      <>
+        <Helmet>
+          <title>{name}</title>
+        </Helmet>
+        <div className="restaturant-page">
+          <div className="res-images">
+            <img
+              className="res-image-item"
+              src={images[0]}
+              alt="images not found"
+            />
+            <div className="res-details">
+              <div className="res-name"> {name}</div>
+              <div className="res-rating">
+                {[...Array(parseInt(rating))].map((el, idx) => (
+                  <span className="filled">
+                    <AiFillStar />
+                  </span>
+                ))}
+                {[...Array(5 - parseInt(rating))].map((el, idx) => (
+                  <span className="empty">
+                    <AiOutlineStar />
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="res-address">Sricity, India</div>
+          </div>
+          <hr />
+          <div className="navbar-list">
+            <div
+              className={isOrder ? "nav-item active" : "nav-item"}
+              onClick={() => this.setState({ isOrder: true, isReview: false })}
+            >
+              Order
+            </div>
+            <div
+              className={isReview ? "nav-item active" : "nav-item"}
+              onClick={() => this.setState({ isOrder: false, isReview: true })}
+            >
+              Review
             </div>
           </div>
-          <div className="res-address">Sricity, India</div>
+          <hr />
+          {this.state.isOrder ? (
+            <Order order={this.state.restaurant.dishes} />
+          ) : null}
+          {this.state.isReview ? (
+            <Review restaurant_id={this.state.restaurant.id} />
+          ) : null}
         </div>
-        <hr />
-        <div className="navbar-list">
-          <div
-            className={isOrder ? "nav-item active" : "nav-item"}
-            onClick={() => this.setState({ isOrder: true, isReview: false })}
-          >
-            Order
-          </div>
-          <div
-            className={isReview ? "nav-item active" : "nav-item"}
-            onClick={() => this.setState({ isOrder: false, isReview: true })}
-          >
-            Review
-          </div>
-        </div>
-        <hr />
-        {this.state.isOrder ? (
-          <Order order={this.state.restaurant.dishes} />
-        ) : null}
-        {this.state.isReview ? (
-          <Review restaurant_id={this.state.restaurant.id} />
-        ) : null}
-      </div>
+      </>
     );
   }
 }

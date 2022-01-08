@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import DisplayRating from "./../../../component/rating/rating.component";
 import "./review.style.scss";
 import { addRestaurantReview } from "../../../redux/restaurant/restaurant.actions";
 
@@ -68,12 +69,7 @@ class Review extends React.Component {
                 <div className="review-item">
                   <hr />
                   <div className="rating-given">
-                    {[...Array(parseInt(rev.rating))].map((el) => (
-                      <AiFillStar className="filled" />
-                    ))}
-                    {[...Array(5 - parseInt(rev.rating))].map((el) => (
-                      <AiOutlineStar className="empty" />
-                    ))}
+                    <DisplayRating rating={rev.rating} />
                   </div>
                   <div className="review-text">{rev.text}</div>
                   <div className="written-by">- {rev.name}</div>

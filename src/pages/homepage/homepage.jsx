@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import DisplayCard from "../../component/display-card/display-card.component";
 import "./home-page.style.scss";
+import { Helmet } from "react-helmet";
+
 class HomePage extends React.Component {
   constructor() {
     super();
@@ -12,7 +14,7 @@ class HomePage extends React.Component {
   }
   setFourRes() {
     const { restaurant } = this.props;
-    let n = restaurant.length;
+    let n = 4;
     var result = new Array(n),
       len = restaurant.length,
       taken = new Array(len);
@@ -27,20 +29,30 @@ class HomePage extends React.Component {
   }
 
   render() {
-    if (!this.props.restaurant || !this.props.restaurant.length)
-      return <div className="loading">Loading...</div>;
+    if (!this.props.restaurant || !this.props.restaurant.length) return;
+    <>
+      <Helmet>
+        <title>{"Food For Foodie"}</title>
+      </Helmet>
+      <div className="loading">Loading...</div>
+    </>;
     if (this.state.fourRes.length == 0) this.setFourRes();
     return (
-      <div className="home-page">
-        <div className="recommended-restaurant">Recommended Restaurants</div>
-        <div className="list-out-items">
-          {this.state.fourRes.map((res) => (
-            <Link to={`/restaurant/${res.id}`}>
-              <DisplayCard name={res.name} image={res.images[0]} />
-            </Link>
-          ))}
+      <>
+        <Helmet>
+          <title>{"Food For Foodie"}</title>
+        </Helmet>
+        <div className="home-page">
+          <div className="recommended-restaurant">Recommended Restaurants</div>
+          <div className="list-out-items">
+            {this.state.fourRes.map((res) => (
+              <Link to={`/restaurant/${res.id}`}>
+                <DisplayCard name={res.name} image={res.images[0]} />
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
