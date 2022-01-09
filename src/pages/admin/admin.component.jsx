@@ -4,12 +4,14 @@ import { IoBanSharp } from "react-icons/io5";
 import { CgSandClock } from "react-icons/cg";
 import FoutZeroFour from "../../component/404/404.component";
 import { toggleSignInWindow } from "../../redux/toggle/toggle.actions";
-
 import {
   banRestaurant,
   toggleAccountActivity,
 } from "../../redux/restaurant/restaurant.actions";
 import "./admin.style.scss";
+
+// admin controls, remove / time-out a restaurant
+
 
 class Admin extends React.Component {
   constructor() {

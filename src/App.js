@@ -15,6 +15,8 @@ import FoutZeroFour from "./component/404/404.component";
 import Profile from "./pages/profile/profile.component";
 import Admin from "./pages/admin/admin.component";
 
+// Initial File to create the webApp
+
 function App() {
   return (
     <div className="App">

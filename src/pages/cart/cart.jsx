@@ -6,6 +6,8 @@ import CartItem from "./../../component/cart-item/cart-item.component";
 import { toggleSignInWindow } from "../../redux/toggle/toggle.actions";
 import "./cart.style.scss";
 
+// page and a popup for the items cart and stores the food to be ordered
+
 class Cart extends React.Component {
   constructor() {
     super();

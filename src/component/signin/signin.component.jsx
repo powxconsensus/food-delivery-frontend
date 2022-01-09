@@ -6,6 +6,9 @@ import {
   toggleSignUpWindow,
   toggleSignInWindow,
 } from "./../../redux/toggle/toggle.actions";
+
+// page/popup card for signing in for a new user / login
+
 class SignIn extends React.Component {
   constructor() {
     super();

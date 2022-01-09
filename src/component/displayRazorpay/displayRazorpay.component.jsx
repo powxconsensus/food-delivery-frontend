@@ -1,5 +1,7 @@
 import paymentDone from "./paymentDone.component";
 import ReactDOM from "react-dom";
+
+// payment component, it uses a razorpay api to complete the payment things
 function loadScript(src) {
   return new Promise((resolve) => {
     const script = document.createElement("script");

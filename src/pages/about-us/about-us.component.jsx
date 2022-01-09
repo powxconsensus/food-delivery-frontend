@@ -1,6 +1,8 @@
 import "./about-us.style.scss";
 import { Helmet } from "react-helmet";
 
+// about the food for foodies food delivery app
+
 const AboutUs = () => {
   return (
     <>

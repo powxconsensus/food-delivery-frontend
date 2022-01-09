@@ -1,6 +1,9 @@
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import "./rating.style.scss";
 
+// It uses AiFillStar js function in order to render the rating starts from 1 to 5 using a map data structure. It works by taking the unfilled rating and subtracting from 5
+
+
 const DisplayRating = ({ rating }) => {
   return (
     <div className="display-rating">

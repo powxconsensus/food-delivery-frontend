@@ -10,6 +10,8 @@ import CartItem from "../../component/cart-item/cart-item.component";
 import { BiCircle } from "react-icons/bi";
 import { FaCheckCircle } from "react-icons/fa";
 
+// checkout and payment page which gets the address and the final payable amount
+
 class CheckOut extends React.Component {
   constructor() {
     super();

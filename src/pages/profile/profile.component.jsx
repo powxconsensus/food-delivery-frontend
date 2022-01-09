@@ -1,6 +1,8 @@
 import "./profile.style.scss";
 import { Helmet } from "react-helmet";
 
+// a profile page for storing the user address and details(requires a full backend to work)
+
 const Profile = () => {
     return (
         <div className="profile">

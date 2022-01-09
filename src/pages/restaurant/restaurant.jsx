@@ -7,6 +7,10 @@ import "./restaurant.style.scss";
 import Review from "./review/review.component";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { Helmet } from "react-helmet";
+
+// the review component for the restaurant page. works differently for logged in and not logged in people
+// it shows the already stored reviews and also askes the user for more restaurant reviews and stores them including the ratings
+
 class Restaurant extends React.Component {
   constructor() {
     super();

@@ -3,6 +3,8 @@ import MemberCard from "../../component/memberCard/memberCard.component";
 import "./member.style.scss";
 import { Helmet } from "react-helmet";
 
+// member details for the memberCard to be displayed
+
 class Member extends React.Component {
   constructor() {
     super();

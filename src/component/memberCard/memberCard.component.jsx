@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 
 import "./memberCard.style.scss";
 import { BsInstagram, BsTwitter, BsLinkedin, BsFacebook } from "react-icons/bs";
+
+// Here the team members are renders from the json database API with their details, it also includes an hover css annimation
+
 const MemberCard = ({ name, image, rollNo, title,linkedin,instagram }) => {
   return (
     <div className="member-card">

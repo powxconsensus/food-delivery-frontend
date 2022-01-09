@@ -1,5 +1,7 @@
 import "./display-card.style.scss";
 
+// payment/login card ui
+
 const DisplayCard = ({ name, image }) => {
   return (
     <div className="display-card">
