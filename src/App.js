@@ -12,7 +12,11 @@ import CheckOut from "./pages/checkout/checkout.component";
 import Delivery from "./pages/delivery/delivery.component";
 import CovidMeasures from "./pages/covid/covidMeasures.component";
 import FoutZeroFour from "./component/404/404.component";
+<<<<<<< HEAD
 import Profile from "./pages/profile/profile.component";
+=======
+import Admin from "./pages/admin/admin.component";
+>>>>>>> bf3b51e8b1608591af4c30dd82811cba2329a8a6
 
 function App() {
   return (
@@ -29,6 +33,7 @@ function App() {
         <Route path="/delivery" element={<Delivery />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/covid" element={<CovidMeasures />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/carts" element={<Cart />} />
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/*" element={<FoutZeroFour />} />

@@ -22,6 +22,27 @@ const RestaurantReducer = (state = INITIAL_STATE, action) => {
         }),
       };
     }
+    case "TOOGLE_ACCOUNT_ACTIVITY":
+      return {
+        ...state,
+        restaurantWithItems: state.restaurantWithItems.map((res) => {
+          if (res.id === action.payload.id) {
+            return {
+              ...res,
+              isActive: action.payload.isActive,
+            };
+          } else return { ...res };
+        }),
+      };
+
+    case "BAN_RESTAURANT":
+      return {
+        ...state,
+        restaurantWithItems: state.restaurantWithItems.filter(
+          (res) => res.id !== action.payload.id
+        ),
+      };
+
     default:
       return { ...state };
   }

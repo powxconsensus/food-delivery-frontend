@@ -29,9 +29,7 @@ class Header extends React.Component {
   componentDidMount() {
     axios({ url: "http://localhost:1337/database", method: "GET" })
       .then((response) => {
-        this.props.setRestaurantWithItem(
-          JSON.parse(response.data.DB).restaurant
-        );
+        this.props.setRestaurantWithItem(response.data.DB);
       })
       .catch((err) => console.log(err.message));
     document.addEventListener("click", (event) => {

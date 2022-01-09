@@ -1,45 +1,22 @@
 import React from "react";
 import MemberCard from "../../component/memberCard/memberCard.component";
 import "./member.style.scss";
+import axios from "axios";
 import { Helmet } from "react-helmet";
 
 class Member extends React.Component {
   constructor() {
     super();
     this.state = {
-      user: [
-        {
-          name: "Priyanshu Mishra",
-          rollNo: "S20190010145",
-          title: "CFO & Co-Founder",
-          image: "https://bit.ly/3qXRzrC",
-        },
-        {
-          name: "Priyanshu Mishra",
-          rollNo: "S20190010145",
-          title: "CFO & Co-Founder",
-          image: "https://bit.ly/3qXRzrC",
-        },
-        {
-          name: "Priyanshu Mishra",
-          rollNo: "S20190010145",
-          title: "CFO & Co-Founder",
-          image: "https://bit.ly/3qXRzrC",
-        },
-        {
-          name: "Priyanshu Mishra",
-          rollNo: "S20190010145",
-          title: "CFO & Co-Founder",
-          image: "https://bit.ly/3qXRzrC",
-        },
-        {
-          name: "Priyanshu Mishra",
-          rollNo: "S20190010145",
-          title: "CFO & Co-Founder",
-          image: "https://bit.ly/3qXRzrC",
-        },
-      ],
+      user: [],
     };
+  }
+  componentDidMount() {
+    axios({ url: "http://localhost:1337/members", method: "GET" })
+      .then((response) => {
+        this.setState({ user: response.data.DB });
+      })
+      .catch((err) => console.log(err.message));
   }
   render() {
     return (

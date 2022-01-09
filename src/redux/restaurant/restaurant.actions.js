@@ -11,3 +11,17 @@ export const addRestaurantReview = (payload) => {
     payload,
   };
 };
+
+export const toggleAccountActivity = (payload) => {
+  return {
+    type: "TOOGLE_ACCOUNT_ACTIVITY",
+    payload,
+  };
+};
+
+export const banRestaurant = (payload) => {
+  return {
+    type: "BAN_RESTAURANT",
+    payload,
+  };
+};
