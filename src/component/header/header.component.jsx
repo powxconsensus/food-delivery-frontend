@@ -3,10 +3,9 @@ import { connect } from "react-redux";
 import SignIn from "../signin/signin.component";
 import SignUp from "../signup/signup.component";
 import { store } from "./../../redux/store";
-import resDB from "./../../db.json";
 import { Link } from "react-router-dom";
 import { clearCart } from "../../redux/cart/cart.actions";
-
+import axios from "axios";
 import { withRouter } from "../../withRouter";
 import "./header.style.scss";
 import {
@@ -28,7 +27,13 @@ class Header extends React.Component {
     };
   }
   componentDidMount() {
-    this.props.setRestaurantWithItem(resDB.restaurant);
+    axios({ url: "http://localhost:1337/database", method: "GET" })
+      .then((response) => {
+        this.props.setRestaurantWithItem(
+          JSON.parse(response.data.DB).restaurant
+        );
+      })
+      .catch((err) => console.log(err.message));
     document.addEventListener("click", (event) => {
       const className = event.target.className;
       if (
@@ -201,11 +206,15 @@ class Header extends React.Component {
               </div>
               <div
                 className="navbar-item"
-                onClick={() =>
+                onClick={() => {
                   store.dispatch({
                     type: "USER_LOGGED_OUT",
-                  })
-                }
+                  });
+                  const pathName = this.props.location.pathname;
+                  if (pathName === "/carts" || pathName === "/checkout")
+                    this.props.navigate("/");
+                  window.location.reload(false);
+                }}
               >
                 Sign Out
               </div>

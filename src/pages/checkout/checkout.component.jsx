@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import "./checkout.style.scss";
 import displayRazorpay from "../../component/displayRazorpay/displayRazorpay.component";
 import { clearCart } from "../../redux/cart/cart.actions";
+import { toggleSignInWindow } from "../../redux/toggle/toggle.actions";
 import { withRouter } from "../../withRouter";
 import CartItem from "../../component/cart-item/cart-item.component";
 import { BiCircle } from "react-icons/bi";
@@ -132,164 +133,176 @@ class CheckOut extends React.Component {
   };
   render() {
     const { address, selectedAddress } = this.state;
-    return (
-      <>
-        <Helmet>
-          <title>{"CheckOut"}</title>
-        </Helmet>
-        <div className="checkout-page">
-          <div className="checkout">CheckOut</div>
-          <div className="checkout-checkout-below">
-            <div className="left-co">
-              <div className="delivery-address">Delivery Address</div>
-              <div className="pre-address-list">
-                {address && address.length ? (
-                  address.map((add) => (
-                    <>
-                      <div
-                        className="address"
-                        onClick={() =>
-                          this.setState({ selectedAddress: add.id })
-                        }
-                      >
-                        <div className="selected-icon">
-                          {selectedAddress && selectedAddress == add.id ? (
-                            <FaCheckCircle id="blue-rahega" />
-                          ) : (
-                            <BiCircle id="white-rahega" />
-                          )}
-                        </div>
-                        <div className="inner-element">
-                          <div className="address-name">{add.addressName}</div>
-                          <div className="full-address">
-                            {add.street +
-                              ", " +
-                              add.zip +
-                              ", " +
-                              add.city +
-                              ", " +
-                              add.country}
+    if (!this.props.user) {
+      if (!this.props.isSignInWindowOpen) this.props.toggleSignInWindow(true);
+      return <div className="blur-background"></div>;
+    } else {
+      if (this.props.cartItems.length)
+        return (
+          <>
+            <Helmet>
+              <title>{"CheckOut"}</title>
+            </Helmet>
+            <div className="checkout-page">
+              <div className="checkout">CheckOut</div>
+              <div className="checkout-checkout-below">
+                <div className="left-co">
+                  <div className="delivery-address">Delivery Address</div>
+                  <div className="pre-address-list">
+                    {address && address.length ? (
+                      address.map((add) => (
+                        <>
+                          <div
+                            className="address"
+                            onClick={() =>
+                              this.setState({ selectedAddress: add.id })
+                            }
+                          >
+                            <div className="selected-icon">
+                              {selectedAddress && selectedAddress == add.id ? (
+                                <FaCheckCircle id="blue-rahega" />
+                              ) : (
+                                <BiCircle id="white-rahega" />
+                              )}
+                            </div>
+                            <div className="inner-element">
+                              <div className="address-name">
+                                {add.addressName}
+                              </div>
+                              <div className="full-address">
+                                {add.street +
+                                  ", " +
+                                  add.zip +
+                                  ", " +
+                                  add.city +
+                                  ", " +
+                                  add.country}
+                              </div>
+                            </div>
                           </div>
-                        </div>
+                          <hr />
+                        </>
+                      ))
+                    ) : (
+                      <div className="no-address">
+                        Please add address for food delivery
                       </div>
-                      <hr />
-                    </>
-                  ))
-                ) : (
-                  <div className="no-address">
-                    Please add address for food delivery
-                  </div>
-                )}
-                <div
-                  className="add-address"
-                  onClick={() => this.setState({ addingAddress: true })}
-                >
-                  Add Address
-                </div>
-              </div>
-            </div>
-            <div className="right-co">
-              <div className="cart-items">
-                <div className="summary">Summary</div>
-                <div className="ordering-item">Ordering Items</div>
-                {this.props.cartItems.map((item) => (
-                  <CartItem item={item} />
-                ))}
-                <div className="total-amount">
-                  <span>Total Amount: </span>
-                  <span>
-                    {this.props.cartItems.reduce(
-                      (prev, item) => prev + item.price * item.quantity,
-                      0
                     )}
-                    {" Rs"}
-                  </span>
+                    <div
+                      className="add-address"
+                      onClick={() => this.setState({ addingAddress: true })}
+                    >
+                      Add Address
+                    </div>
+                  </div>
+                </div>
+                <div className="right-co">
+                  <div className="cart-items">
+                    <div className="summary">Summary</div>
+                    <div className="ordering-item">Ordering Items</div>
+                    {this.props.cartItems.map((item) => (
+                      <CartItem item={item} />
+                    ))}
+                    <div className="total-amount">
+                      <span>Total Amount: </span>
+                      <span>
+                        {this.props.cartItems.reduce(
+                          (prev, item) => prev + item.price * item.quantity,
+                          0
+                        )}
+                        {" Rs"}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="payment" onClick={this.handlePayment}>
+                    Payment
+                  </div>
                 </div>
               </div>
-              <div className="payment" onClick={this.handlePayment}>
-                Payment
-              </div>
             </div>
-          </div>
-        </div>
-        {this.state.addingAddress ? (
-          <div
-            className="add-address-model"
-            onClick={(event) => {
-              if (event.target.className == "add-address-model")
-                this.setState({ addingAddress: false });
-            }}
-          >
-            <div className="add-window">
-              <div className="window-heading">Add Address</div>
-              <div class="form-group">
-                <input
-                  type="street"
-                  name="street"
-                  class="form-control"
-                  id="autocomplete"
-                  placeholder="Street"
-                  value={this.state.street}
-                  onChange={this.onChange}
-                />
+            {this.state.addingAddress ? (
+              <div
+                className="add-address-model"
+                onClick={(event) => {
+                  if (event.target.className == "add-address-model")
+                    this.setState({ addingAddress: false });
+                }}
+              >
+                <div className="add-window">
+                  <div className="window-heading">Add Address</div>
+                  <div class="form-group">
+                    <input
+                      type="street"
+                      name="street"
+                      class="form-control"
+                      id="autocomplete"
+                      placeholder="Street"
+                      value={this.state.street}
+                      onChange={this.onChange}
+                    />
 
-                <input
-                  type="city"
-                  name="city"
-                  class="form-control"
-                  id="inputCity"
-                  placeholder="City"
-                  value={this.state.city}
-                  onChange={this.onChange}
-                />
+                    <input
+                      type="city"
+                      name="city"
+                      class="form-control"
+                      id="inputCity"
+                      placeholder="City"
+                      value={this.state.city}
+                      onChange={this.onChange}
+                    />
 
-                <input
-                  type="state"
-                  name="state"
-                  class="form-control"
-                  id="inputState"
-                  placeholder="State"
-                  value={this.state.state}
-                  onChange={this.onChange}
-                />
+                    <input
+                      type="state"
+                      name="state"
+                      class="form-control"
+                      id="inputState"
+                      placeholder="State"
+                      value={this.state.state}
+                      onChange={this.onChange}
+                    />
 
-                <input
-                  name="zip"
-                  type="zip"
-                  class="form-control"
-                  id="inputZip"
-                  placeholder="Zip"
-                  value={this.state.zip}
-                  onChange={this.onChange}
-                />
+                    <input
+                      name="zip"
+                      type="zip"
+                      class="form-control"
+                      id="inputZip"
+                      placeholder="Zip"
+                      value={this.state.zip}
+                      onChange={this.onChange}
+                    />
 
-                <input
-                  type="country"
-                  name="country"
-                  class="form-control"
-                  id="inputCounty"
-                  placeholder="County"
-                  value={this.state.country}
-                  onChange={this.onChange}
-                />
-                <input
-                  type="addressName"
-                  name="addressName"
-                  class="form-control"
-                  id="addressName"
-                  placeholder="Home"
-                  value={this.state.addressName}
-                  onChange={this.onChange}
-                />
+                    <input
+                      type="country"
+                      name="country"
+                      class="form-control"
+                      id="inputCounty"
+                      placeholder="County"
+                      value={this.state.country}
+                      onChange={this.onChange}
+                    />
+                    <input
+                      type="addressName"
+                      name="addressName"
+                      class="form-control"
+                      id="addressName"
+                      placeholder="Home"
+                      value={this.state.addressName}
+                      onChange={this.onChange}
+                    />
+                  </div>
+                  <div className="submit-btn">
+                    <span onClick={this.addAddress}>Confirm And Add</span>
+                  </div>
+                </div>
               </div>
-              <div className="submit-btn">
-                <span onClick={this.addAddress}>Confirm And Add</span>
-              </div>
-            </div>
-          </div>
-        ) : null}
-      </>
-    );
+            ) : null}
+          </>
+        );
+      else {
+        this.props.navigate("/carts");
+        return <div>no items to checkout</div>;
+      }
+    }
   }
 }
 const mapStateToProps = (state) => {
@@ -301,6 +314,7 @@ const mapStateToProps = (state) => {
 const mapStateToDispatch = (dispatch) => {
   return {
     clearCart: () => dispatch(clearCart()),
+    toggleSignInWindow: (payload) => dispatch(toggleSignInWindow(payload)),
   };
 };
 export default withRouter(
