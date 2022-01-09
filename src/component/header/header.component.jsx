@@ -74,7 +74,7 @@ class Header extends React.Component {
       <div
         className="header"
         style={{
-          backgroundImage: `url("https://bit.ly/3dSQc7v")`,
+          backgroundImage: `url("https://bit.ly/3GaMPVU")`,
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
