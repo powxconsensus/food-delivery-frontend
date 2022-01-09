@@ -12,6 +12,7 @@ import CheckOut from "./pages/checkout/checkout.component";
 import Delivery from "./pages/delivery/delivery.component";
 import CovidMeasures from "./pages/covid/covidMeasures.component";
 import FoutZeroFour from "./component/404/404.component";
+import Profile from "./pages/profile/profile.component";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/members" element={<Member />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/delivery" element={<Delivery />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/covid" element={<CovidMeasures />} />
         <Route path="/carts" element={<Cart />} />
         <Route path="/checkout" element={<CheckOut />} />

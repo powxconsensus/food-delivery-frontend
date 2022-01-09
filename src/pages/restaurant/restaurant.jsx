@@ -78,8 +78,28 @@ class Restaurant extends React.Component {
         <div className="restaturant-page">
           <div className="res-images">
             <img
-              className="res-image-item"
+              className="res-image-item0"
               src={images[0]}
+              alt="images not found"
+            />
+            <img
+              className="res-image-item1"
+              src={images[1]}
+              alt="images not found"
+            />
+            <img            
+              className="res-image-item2"
+              src={images[2]}
+              alt="images not found"
+            />
+            <img            
+              className="res-image-item3"
+              src={images[3]}
+              alt="images not found"
+            />
+            <img            
+              className="res-image-item4"
+              src={images[4]}
               alt="images not found"
             />
             <div className="res-details">

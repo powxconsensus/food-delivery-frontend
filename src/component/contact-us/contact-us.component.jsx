@@ -10,7 +10,7 @@ const ContactUs = () => {
       <div className="content">
         <p>You can reach us out through customer support: </p>
         <br />
-        <h4>customer.support@gmail.com</h4>
+        <a href="mailto:someone@example.com">customer.support@gmail.com</a>
       </div>
     </div>
   );
