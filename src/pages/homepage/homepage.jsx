@@ -29,13 +29,15 @@ class HomePage extends React.Component {
   }
 
   render() {
-    if (!this.props.restaurant || !this.props.restaurant.length) return;
-    <>
-      <Helmet>
-        <title>{"Food For Foodie"}</title>
-      </Helmet>
-      <div className="loading">Loading...</div>
-    </>;
+    if (!this.props.restaurant || !this.props.restaurant.length)
+      return (
+        <>
+          <Helmet>
+            <title>{"Food For Foodie"}</title>
+          </Helmet>
+          <div className="loading">Loading...</div>
+        </>
+      );
     if (this.state.fourRes.length == 0) this.setFourRes();
     return (
       <>

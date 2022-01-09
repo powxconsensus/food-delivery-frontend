@@ -9,6 +9,7 @@ import CartReducer from "./cart/cart.reducer";
 const persistConfig = {
   key: "root",
   storage,
+  timeout: null,
 };
 const appReducer = combineReducers({
   toggle: toggleReducer,
