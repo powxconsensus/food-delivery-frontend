@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import "./memberCard.style.scss";
 import { BsInstagram, BsTwitter, BsLinkedin, BsFacebook } from "react-icons/bs";
-const MemberCard = ({ name, image, rollNo, title }) => {
+const MemberCard = ({ name, image, rollNo, title,linkedin,instagram }) => {
   return (
     <div className="member-card">
       <div
@@ -21,12 +21,12 @@ const MemberCard = ({ name, image, rollNo, title }) => {
         <Link to="#" className="contact-item">
           <BsTwitter />
         </Link>
-        <Link to="#" className="contact-item">
+        <a href={instagram} className="contact-item" target="_blank">
           <BsInstagram />
-        </Link>
-        <Link to="#" className="contact-item">
+        </a>
+        <a href={linkedin} className="contact-item" target="_blank">
           <BsLinkedin />
-        </Link>
+        </a>
         <Link to="#" className="contact-item">
           <BsFacebook />
         </Link>
