@@ -1,0 +1,15 @@
+.restaurant-list{
+    .filter-restaurant-by-status{
+        display: flex;
+        .filter-button{
+            padding: 5px 10px 5px 10px;
+            cursor: pointer;
+        }
+
+    }
+    .all-filtered-restaurant{
+        width: 100%;
+        height: auto;
+        background-color: yellow;
+    }
+}

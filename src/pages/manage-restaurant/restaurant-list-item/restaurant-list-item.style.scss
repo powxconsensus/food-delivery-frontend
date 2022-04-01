@@ -1,0 +1,9 @@
+.restaurant-list-item{
+    height: 60px;
+    width: 100%;
+    background-color: aliceblue;
+    cursor: pointer;
+    &:hover{
+        background-color: red;
+    }
+}

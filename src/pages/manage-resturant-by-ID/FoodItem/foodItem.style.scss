@@ -1,0 +1,12 @@
+.food-item{
+    width: 100%;
+    padding: 20px 0px 20px 0px;
+    height: auto;
+    background-color: green;
+  
+    .extend-this-edit-option{
+        height: 100px;
+        width: 100%;
+        background-color: red;
+    }   
+}

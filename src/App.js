@@ -12,11 +12,11 @@ import CheckOut from "./pages/checkout/checkout.component";
 import Delivery from "./pages/delivery/delivery.component";
 import CovidMeasures from "./pages/covid/covidMeasures.component";
 import FoutZeroFour from "./component/404/404.component";
-<<<<<<< HEAD
 import Profile from "./pages/profile/profile.component";
-=======
 import Admin from "./pages/admin/admin.component";
->>>>>>> bf3b51e8b1608591af4c30dd82811cba2329a8a6
+import ManageRestaurant from "./pages/manage-restaurant/manage-restaurant.component";
+import RestaurantApplication from "./pages/restaurant-application-form/restaurant-application-form.component";
+import ManageRestaurantById from "./pages/manage-resturant-by-ID/manage-resturant-by-ID.component";
 
 function App() {
   return (
@@ -25,6 +25,16 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/manage-restaurant" element={<ManageRestaurant />} />
+        <Route
+          path="/manage-restaurant/:restaurantId"
+          element={<ManageRestaurantById />}
+        />
+
+        <Route
+          path="/restaurant-application"
+          element={<RestaurantApplication />}
+        />
         <Route path="restaurant">
           <Route path=":id" element={<Restaurant />} />
         </Route>
