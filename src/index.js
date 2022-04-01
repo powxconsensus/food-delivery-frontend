@@ -10,6 +10,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
 
+// Handles the app startup, routing and all the functions of the webApp
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

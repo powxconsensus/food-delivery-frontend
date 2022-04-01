@@ -5,6 +5,8 @@ import DisplayCard from "../../component/display-card/display-card.component";
 import "./home-page.style.scss";
 import { Helmet } from "react-helmet";
 
+// the home background and the color gradiant for the recommended restaurants
+
 class HomePage extends React.Component {
   constructor() {
     super();

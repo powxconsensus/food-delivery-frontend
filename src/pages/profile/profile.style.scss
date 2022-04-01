@@ -1,7 +1,16 @@
-body {
-    background: #eee
+.profile{
+    width: calc(100% - 40px);
+    padding: 20px;
+    min-height: 200px;
+    height: auto;
+    background: #2bc0e4;
+    background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+    background: linear-gradient(to top, #eaecc6, #2bc0e4);
 }
 
+.profilediv{
+    padding: 35px 100px 35px 100px;
+}
 .card {
     border: none;
     position: relative;
@@ -41,7 +50,7 @@ body {
 }
 
 .fonts {
-    font-size: 11px
+    font-size: 15px
 }
 
 .social-list {

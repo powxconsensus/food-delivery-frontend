@@ -1,6 +1,8 @@
 import React from "react";
 import "./contact-us.style.scss";
 
+// customer support page
+
 const ContactUs = () => {
   return (
     <div className="contactus-container">

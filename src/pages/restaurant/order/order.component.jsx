@@ -5,6 +5,9 @@ import { toggleSignInWindow } from "../../../redux/toggle/toggle.actions";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import "./order.style.scss";
 
+// it renders the food dishes from the db.json file which uses a mick json API and 
+// it also caontains the AiFillStar function to get the restaurant star reviews
+
 class Order extends React.Component {
   constructor() {
     super();

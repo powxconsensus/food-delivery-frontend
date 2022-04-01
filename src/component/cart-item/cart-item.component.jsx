@@ -9,6 +9,15 @@ import {
   clearItemFromCart,
 } from "../../redux/cart/cart.actions";
 
+/*  This section contains cart-item section code
+
+   We used a class called Cartitem for rendering the cart part in UI
+   The code is embeded in a class to perform three operations like
+   1.Adding an item in cart
+   2.Changing the quantity of items in the cart
+   3.Removing the item from the cart
+*/
+
 class CartItem extends React.Component {
   constructor() {
     super();

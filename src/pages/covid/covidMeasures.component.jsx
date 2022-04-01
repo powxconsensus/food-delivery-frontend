@@ -1,6 +1,9 @@
 import React from "react";
 import "./covidMeasures.style.scss";
 
+// a page for the covid measures taken for the food delivery
+
+
 const CovidMeasures = () => {
   return (
     <div className="covid-container">

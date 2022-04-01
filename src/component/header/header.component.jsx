@@ -17,6 +17,10 @@ import { setRestaurantWithItem } from "../../redux/restaurant/restaurant.actions
 import CartItem from "../cart-item/cart-item.component";
 import DisplayRating from "../rating/rating.component";
 
+// Main webApp component file which renders all the things including the restaurants, restaurant
+//  rating, restaurant images, the things without the login and with the login
+// It also gets the restaurant items and includes them in the cart and calculates the total cost
+
 class Header extends React.Component {
   constructor() {
     super();
@@ -74,7 +78,7 @@ class Header extends React.Component {
       <div
         className="header"
         style={{
-          backgroundImage: `url("https://bit.ly/3dSQc7v")`,
+          backgroundImage: `url("https://bit.ly/3GaMPVU")`,
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
