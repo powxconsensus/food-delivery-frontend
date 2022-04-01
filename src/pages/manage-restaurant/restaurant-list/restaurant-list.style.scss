@@ -1,15 +1,32 @@
 .restaurant-list{
     .filter-restaurant-by-status{
         display: flex;
+
+        padding: 2% 5% 2% 5%;
+        max-width: fit-content;
+        margin: 0 25%;
+
         .filter-button{
-            padding: 5px 10px 5px 10px;
+            background-color: #f5c664;
+            color: black;
+            padding: 1% 5em;
+            display: inline-block;
+            border-radius: 1em;
+            margin: 0 2%;
+            text-align: center;
             cursor: pointer;
+
+            &:hover{
+                background-color: #fa5e5e;
+                color: white;
+                font-weight: 900;
+            }
         }
 
     }
     .all-filtered-restaurant{
         width: 100%;
         height: auto;
-        background-color: yellow;
+        background-color:#5d5367;
     }
 }

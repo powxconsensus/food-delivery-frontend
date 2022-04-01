@@ -1,9 +1,16 @@
 .restaurant-list-item{
-    height: 60px;
+    height: 3em;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 3em;
     width: 100%;
     background-color: aliceblue;
+
     cursor: pointer;
     &:hover{
         background-color: red;
     }
+    font-size:large;
+    
 }

@@ -10,7 +10,7 @@ class ManageRestaurant extends React.Component {
   render() {
     return (
       <div className="manage-restaurant-page">
-        Manage-restaurantPage
+        Manage your restaurants
         <RestaurantList />
         <div
           className="restaurant-application-button"
