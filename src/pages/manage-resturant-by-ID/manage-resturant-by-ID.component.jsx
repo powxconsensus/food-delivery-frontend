@@ -6,7 +6,7 @@ class ManageRestaurantById extends React.Component {
   constructor() {
     super();
     this.state = {
-      foodItemList: ["1", "2"],
+      foodItemList: ["1"],
     };
   }
   render() {
